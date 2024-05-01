@@ -46,6 +46,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="Model\Location.cs" />
+    <Compile Include="Model\Order.cs" />
+    <Compile Include="Model\StaticPersistence.cs" />
+    <Compile Include="Model\TaxRate.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
