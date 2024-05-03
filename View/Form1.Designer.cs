@@ -41,6 +41,8 @@
             this.lblEstado = new System.Windows.Forms.Label();
             this.cbState = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
+            this.txtDetallesOrden = new System.Windows.Forms.TextBox();
+            this.btnMostrarOrden = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ElegirProducto
@@ -90,7 +92,7 @@
             // lblSubtotal
             // 
             this.lblSubtotal.AutoSize = true;
-            this.lblSubtotal.Location = new System.Drawing.Point(460, 182);
+            this.lblSubtotal.Location = new System.Drawing.Point(460, 227);
             this.lblSubtotal.Name = "lblSubtotal";
             this.lblSubtotal.Size = new System.Drawing.Size(70, 13);
             this.lblSubtotal.TabIndex = 6;
@@ -99,7 +101,7 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(460, 230);
+            this.lblTotal.Location = new System.Drawing.Point(460, 267);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(45, 13);
             this.lblTotal.TabIndex = 7;
@@ -107,7 +109,7 @@
             // 
             // txtSubtotal
             // 
-            this.txtSubtotal.Location = new System.Drawing.Point(568, 175);
+            this.txtSubtotal.Location = new System.Drawing.Point(568, 220);
             this.txtSubtotal.Name = "txtSubtotal";
             this.txtSubtotal.ReadOnly = true;
             this.txtSubtotal.Size = new System.Drawing.Size(126, 20);
@@ -116,7 +118,7 @@
             // 
             // txtTotal
             // 
-            this.txtTotal.Location = new System.Drawing.Point(568, 223);
+            this.txtTotal.Location = new System.Drawing.Point(568, 260);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.ReadOnly = true;
             this.txtTotal.Size = new System.Drawing.Size(126, 20);
@@ -152,19 +154,40 @@
             // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(15, 220);
+            this.btnLimpiar.Location = new System.Drawing.Point(15, 217);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.Size = new System.Drawing.Size(112, 23);
             this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
+            // 
+            // txtDetallesOrden
+            // 
+            this.txtDetallesOrden.Location = new System.Drawing.Point(423, 45);
+            this.txtDetallesOrden.Multiline = true;
+            this.txtDetallesOrden.Name = "txtDetallesOrden";
+            this.txtDetallesOrden.ReadOnly = true;
+            this.txtDetallesOrden.Size = new System.Drawing.Size(340, 139);
+            this.txtDetallesOrden.TabIndex = 15;
+            // 
+            // btnMostrarOrden
+            // 
+            this.btnMostrarOrden.Location = new System.Drawing.Point(133, 217);
+            this.btnMostrarOrden.Name = "btnMostrarOrden";
+            this.btnMostrarOrden.Size = new System.Drawing.Size(115, 23);
+            this.btnMostrarOrden.TabIndex = 16;
+            this.btnMostrarOrden.Text = "VER_PEDIDO";
+            this.btnMostrarOrden.UseVisualStyleBackColor = true;
+            this.btnMostrarOrden.Click += new System.EventHandler(this.btnMostrarOrden_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnMostrarOrden);
+            this.Controls.Add(this.txtDetallesOrden);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.cbState);
             this.Controls.Add(this.lblEstado);
@@ -201,6 +224,8 @@
         private System.Windows.Forms.Label lblEstado;
         private System.Windows.Forms.ComboBox cbState;
         private System.Windows.Forms.Button btnLimpiar;
+        private System.Windows.Forms.TextBox txtDetallesOrden;
+        private System.Windows.Forms.Button btnMostrarOrden;
     }
 }
 

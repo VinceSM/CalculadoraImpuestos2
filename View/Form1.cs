@@ -147,5 +147,45 @@ namespace CalculadoraImpuestos
         { }
         private void txtSubtotal_TextChanged(object sender, EventArgs e)
         { }
+
+        private void btnMostrarOrden_Click(object sender, EventArgs e)
+        {
+            MostrarOrden();
+        }
+        private void MostrarOrden()
+        {
+            List<string> detallesOrden = new List<string>();
+
+            foreach (var item in currentOrder.Items)
+            {
+                string detalleProducto = $"Producto: {item.Producto.Name}{Environment.NewLine}, Cantidad: {item.Quantity}";
+                detallesOrden.Add(detalleProducto);
+            }
+
+            Location location = currentOrder.Locations.FirstOrDefault();
+            if (location != null)
+            {
+                string detalleUbicacion = string.Empty;
+
+                if (!string.IsNullOrEmpty(location.Country))
+                {
+                    detalleUbicacion = $"País: {location.Country}";
+                }
+                else if (!string.IsNullOrEmpty(location.State))
+                {
+                    detalleUbicacion = $"Estado: {location.State}";
+                }
+
+                detallesOrden.Add(detalleUbicacion);
+            }
+
+            decimal subtotal = currentOrder.CalculateSubtotal();
+            decimal total = currentOrder.CalculateTotal();
+
+            detallesOrden.Add($"Subtotal: {subtotal:C2}");
+            detallesOrden.Add($"Total: {total:C2}");
+
+            txtDetallesOrden.Text = string.Join(Environment.NewLine, detallesOrden);
+        }
     }
 }
