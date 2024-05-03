@@ -19,16 +19,16 @@ namespace CalculadoraImpuestos.Model
 
         public static List<Location> Countries { get; } = new List<Location>
         {
-            new Location("España(Country)", null),
-            new Location("Italia(Country)", null),
-            new Location("Alemania(Country)", null)
+            new Location("España", null),
+            new Location("Italia", null),
+            new Location("Alemania", null)
         };
 
         public static List<Location> States { get; } = new List<Location>
         {
-            new Location(null, "Mississippi(State)"),
-            new Location(null, "Texas(State)"),
-            new Location(null, "Kentucky(State)")
+            new Location(null, "Mississippi"),
+            new Location(null, "Texas"),
+            new Location(null, "Kentucky")
         };
     }
 }

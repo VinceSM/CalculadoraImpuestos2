@@ -9,32 +9,35 @@ namespace CalculadoraImpuestos.Model
 {
     public class TaxRate
     {
-        public decimal GetTaxCalculator(string State, string Country) 
+        public decimal GetTaxCalculator(string country, string state)
         {
-            if(Country != null && State == null)
+            if (!string.IsNullOrEmpty(country) && string.IsNullOrEmpty(state))
             {
-                GetEUTax(Country);
+                return GetEUTax(country);
             }
-            else 
+            else if (!string.IsNullOrEmpty(state) && string.IsNullOrEmpty(country))
             {
-                GetUSTax(State);
+                return GetUSTax(state);
             }
+
             return 0m;
         }
 
-        private decimal GetEUTax(string Country)
+        private decimal GetEUTax(string country)
         {
-            if (Country == "España(Country)" ||  Country == "Italia(Country)" || Country == "Alemania(Country)")
+            if (country == "España" || country == "Italia" || country == "Alemania")
             {
-                return 0.20m;
+                return 0.20m; 
             }
+
             return 0m;
         }
-        private decimal GetUSTax(string State)
+
+        private decimal GetUSTax(string state)
         {
-            if(State == "Mississippi(State)" || State == "Texas(State)" || State == "Kentucky(State)")
+            if (state == "Mississippi" || state == "Texas" || state == "Kentucky")
             {
-                return 0.07m;
+                return 0.07m; 
             }
             return 0m;
         }

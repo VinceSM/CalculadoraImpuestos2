@@ -32,12 +32,14 @@
             this.lblCantidadItem = new System.Windows.Forms.Label();
             this.txtCantidadItem = new System.Windows.Forms.TextBox();
             this.lblProducto = new System.Windows.Forms.Label();
-            this.lblPaisEstado = new System.Windows.Forms.Label();
-            this.ElegirPaisEstado = new System.Windows.Forms.DomainUpDown();
+            this.lblPais = new System.Windows.Forms.Label();
             this.lblSubtotal = new System.Windows.Forms.Label();
             this.lblTotal = new System.Windows.Forms.Label();
             this.txtSubtotal = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
+            this.cbCountry = new System.Windows.Forms.ComboBox();
+            this.lblEstado = new System.Windows.Forms.Label();
+            this.cbState = new System.Windows.Forms.ComboBox();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -63,10 +65,9 @@
             // 
             this.txtCantidadItem.Location = new System.Drawing.Point(132, 82);
             this.txtCantidadItem.Name = "txtCantidadItem";
-            this.txtCantidadItem.Size = new System.Drawing.Size(80, 20);
+            this.txtCantidadItem.Size = new System.Drawing.Size(130, 20);
             this.txtCantidadItem.TabIndex = 2;
             this.txtCantidadItem.TextChanged += new System.EventHandler(this.txtCantidadItem_TextChanged);
-            this.txtCantidadItem.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtCantidadItem_KeyDown);
             // 
             // lblProducto
             // 
@@ -77,23 +78,14 @@
             this.lblProducto.TabIndex = 3;
             this.lblProducto.Text = "Seleccionar Producto: ";
             // 
-            // lblPaisEstado
+            // lblPais
             // 
-            this.lblPaisEstado.AutoSize = true;
-            this.lblPaisEstado.Location = new System.Drawing.Point(15, 130);
-            this.lblPaisEstado.Name = "lblPaisEstado";
-            this.lblPaisEstado.Size = new System.Drawing.Size(134, 13);
-            this.lblPaisEstado.TabIndex = 4;
-            this.lblPaisEstado.Text = "Seleccione Pais o Estado: ";
-            // 
-            // ElegirPaisEstado
-            // 
-            this.ElegirPaisEstado.Location = new System.Drawing.Point(173, 123);
-            this.ElegirPaisEstado.Name = "ElegirPaisEstado";
-            this.ElegirPaisEstado.ReadOnly = true;
-            this.ElegirPaisEstado.Size = new System.Drawing.Size(157, 20);
-            this.ElegirPaisEstado.TabIndex = 5;
-            this.ElegirPaisEstado.SelectedItemChanged += new System.EventHandler(this.ElegirPaisEstado_SelectedItemChanged);
+            this.lblPais.AutoSize = true;
+            this.lblPais.Location = new System.Drawing.Point(12, 130);
+            this.lblPais.Name = "lblPais";
+            this.lblPais.Size = new System.Drawing.Size(89, 13);
+            this.lblPais.TabIndex = 4;
+            this.lblPais.Text = "Seleccione Pais: ";
             // 
             // lblSubtotal
             // 
@@ -131,12 +123,39 @@
             this.txtTotal.TabIndex = 9;
             this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
+            // cbCountry
+            // 
+            this.cbCountry.FormattingEnabled = true;
+            this.cbCountry.Location = new System.Drawing.Point(132, 122);
+            this.cbCountry.Name = "cbCountry";
+            this.cbCountry.Size = new System.Drawing.Size(130, 21);
+            this.cbCountry.TabIndex = 11;
+            this.cbCountry.SelectedIndexChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
+            // 
+            // lblEstado
+            // 
+            this.lblEstado.AutoSize = true;
+            this.lblEstado.Location = new System.Drawing.Point(12, 171);
+            this.lblEstado.Name = "lblEstado";
+            this.lblEstado.Size = new System.Drawing.Size(102, 13);
+            this.lblEstado.TabIndex = 12;
+            this.lblEstado.Text = "Seleccione Estado: ";
+            // 
+            // cbState
+            // 
+            this.cbState.FormattingEnabled = true;
+            this.cbState.Location = new System.Drawing.Point(132, 163);
+            this.cbState.Name = "cbState";
+            this.cbState.Size = new System.Drawing.Size(130, 21);
+            this.cbState.TabIndex = 13;
+            this.cbState.SelectedIndexChanged += new System.EventHandler(this.cbState_SelectedIndexChanged);
+            // 
             // btnLimpiar
             // 
-            this.btnLimpiar.Location = new System.Drawing.Point(12, 182);
+            this.btnLimpiar.Location = new System.Drawing.Point(15, 220);
             this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(109, 26);
-            this.btnLimpiar.TabIndex = 10;
+            this.btnLimpiar.Size = new System.Drawing.Size(75, 23);
+            this.btnLimpiar.TabIndex = 14;
             this.btnLimpiar.Text = "LIMPIAR";
             this.btnLimpiar.UseVisualStyleBackColor = true;
             this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
@@ -147,12 +166,14 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btnLimpiar);
+            this.Controls.Add(this.cbState);
+            this.Controls.Add(this.lblEstado);
+            this.Controls.Add(this.cbCountry);
             this.Controls.Add(this.txtTotal);
             this.Controls.Add(this.txtSubtotal);
             this.Controls.Add(this.lblTotal);
             this.Controls.Add(this.lblSubtotal);
-            this.Controls.Add(this.ElegirPaisEstado);
-            this.Controls.Add(this.lblPaisEstado);
+            this.Controls.Add(this.lblPais);
             this.Controls.Add(this.lblProducto);
             this.Controls.Add(this.txtCantidadItem);
             this.Controls.Add(this.lblCantidadItem);
@@ -171,12 +192,14 @@
         private System.Windows.Forms.Label lblCantidadItem;
         private System.Windows.Forms.TextBox txtCantidadItem;
         private System.Windows.Forms.Label lblProducto;
-        private System.Windows.Forms.Label lblPaisEstado;
-        private System.Windows.Forms.DomainUpDown ElegirPaisEstado;
+        private System.Windows.Forms.Label lblPais;
         private System.Windows.Forms.Label lblSubtotal;
         private System.Windows.Forms.Label lblTotal;
         private System.Windows.Forms.TextBox txtSubtotal;
         private System.Windows.Forms.TextBox txtTotal;
+        private System.Windows.Forms.ComboBox cbCountry;
+        private System.Windows.Forms.Label lblEstado;
+        private System.Windows.Forms.ComboBox cbState;
         private System.Windows.Forms.Button btnLimpiar;
     }
 }

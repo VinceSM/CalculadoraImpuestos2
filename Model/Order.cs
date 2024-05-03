@@ -22,7 +22,7 @@ namespace CalculadoraImpuestos.Model
 
             foreach (var item in Items)
             {
-                subtotal += item.Producto.Price * item.Quantity;
+                subtotal = item.Producto.Price * item.Quantity;
             }
 
             return subtotal;
@@ -31,15 +31,21 @@ namespace CalculadoraImpuestos.Model
         {
             decimal subtotal = CalculateSubtotal();
 
-            Location location = this.Locations.FirstOrDefault();
+            Location location = Locations.FirstOrDefault();
 
             TaxRate taxRate = new TaxRate();
 
-            decimal taxRateValue = taxRate.GetTaxCalculator(location?.Country, location?.State);
+            decimal taxRateValue = 0m;
 
-            decimal total = subtotal * (1 + taxRateValue);
+            if (location != null)
+            {
+                taxRateValue = taxRate.GetTaxCalculator(location.Country, location.State);
+            }
+
+            decimal total = subtotal + (subtotal * taxRateValue);
 
             return total;
         }
+
     }
 }

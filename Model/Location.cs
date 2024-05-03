@@ -12,7 +12,7 @@ namespace CalculadoraImpuestos.Model
         
         public string Country { get; private set; }
 
-        public Location(string country = null , string state = null)
+        public Location(string country , string state)
         {
             Country = country;
             State = state;
